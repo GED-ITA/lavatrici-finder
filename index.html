@@ -3,124 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Database Lavatrici 2024-2025 | 42 Modelli Comparati</title>
-    <meta name="description" content="Database completo di 42 lavatrici 2024-2025. Confronta prezzi, caratteristiche, programmi e trova la lavatrice perfetta per te.">
-    <link rel="stylesheet" href="styles.css">
+    <title>Ricerca Avanzata Lavatrici</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <h1 class="header-title">🔍 Database Lavatrici 2024-2025</h1>
-            <p class="header-subtitle">42 Modelli | 9 Marche | Confronto Completo</p>
-        </div>
+
+    <header>
+        <h1>Guida all'Acquisto Lavatrici 🧺</h1>
+        <p>Trova il modello perfetto per le tue esigenze</p>
     </header>
 
-    <main class="main">
-        <div class="container">
-            <!-- Filtri e Ricerca -->
-            <section class="controls">
-                <div class="search-section">
-                    <input type="text" id="searchInput" placeholder="🔍 Cerca modello, marca, o tecnologia... (es: 'Miele TwinDos', 'SteamCure', '10kg')">
+    <div class="container">
+        <aside class="filters-sidebar">
+            <h2>Filtri di Ricerca</h2>
+            <form id="filter-form">
+                <div class="filter-group">
+                    <label for="search-term">Cerca per nome/modello:</label>
+                    <input type="text" id="search-term" placeholder="Es. F4X9009TWCE">
                 </div>
 
-                <div class="filters-grid">
-                    <div class="filter-group">
-                        <label>Marca</label>
-                        <select id="marcaFilter">
-                            <option value="">Tutte le marche</option>
-                        </select>
-                    </div>
-
-                    <div class="filter-group">
-                        <label>Capacità</label>
-                        <select id="capacitaFilter">
-                            <option value="">Tutte</option>
-                            <option value="6-7">6-7 kg</option>
-                            <option value="8-9">8-9 kg</option>
-                            <option value="10-11">10-11 kg</option>
-                            <option value="12+">12+ kg</option>
-                        </select>
-                    </div>
-
-                    <div class="filter-group">
-                        <label>Prezzo</label>
-                        <select id="prezzoFilter">
-                            <option value="">Tutti</option>
-                            <option value="budget">< 600€</option>
-                            <option value="medio">600€ - 1000€</option>
-                            <option value="premium">1000€ - 2000€</option>
-                            <option value="luxury">> 2000€</option>
-                        </select>
-                    </div>
-
-                    <div class="filter-group">
-                        <label>Classe Energetica</label>
-                        <select id="classeFilter">
-                            <option value="">Tutte</option>
-                            <option value="A-60%">A-60%</option>
-                            <option value="A-40%">A-40%</option>
-                            <option value="A-20%">A-20%</option>
-                            <option value="A-10%">A-10%</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                        </select>
-                    </div>
-
-                    <div class="filter-group">
-                        <label>Tecnologie</label>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" id="vaporeFilter"> Vapore</label>
-                            <label><input type="checkbox" id="wifiFilter"> WiFi</label>
-                            <label><input type="checkbox" id="aiFilter"> AI</label>
-                            <label><input type="checkbox" id="autoDosaggioFilter"> Auto-dosaggio</label>
-                        </div>
-                    </div>
-
-                    <div class="filter-group">
-                        <label>Ordinamento</label>
-                        <select id="sortSelect">
-                            <option value="prezzo-asc">Prezzo crescente</option>
-                            <option value="prezzo-desc">Prezzo decrescente</option>
-                            <option value="capacita-desc">Capacità maggiore</option>
-                            <option value="efficienza">Efficienza energetica</option>
-                            <option value="marca">Marca A-Z</option>
-                        </select>
-                    </div>
+                <div class="filter-group">
+                    <label>Marca:</label>
+                    <div id="brand-filters" class="checkbox-group"></div>
                 </div>
 
-                <div class="results-info">
-                    <span id="resultsCount">42 modelli trovati</span>
-                    <button id="clearFilters" class="btn-secondary">Cancella filtri</button>
+                <div class="filter-group">
+                    <label for="price-range">Prezzo (€): <span id="price-value">0 - 3000</span></label>
+                    <input type="range" id="price-range" min="0" max="3000" step="100" value="3000">
                 </div>
-            </section>
-
-            <!-- Confronto Modelli -->
-            <section id="compareSection" class="compare-section" style="display: none;">
-                <h2>🔄 Confronto Modelli</h2>
-                <div id="compareTable"></div>
-                <button id="clearCompare" class="btn-secondary">Cancella confronto</button>
-            </section>
-
-            <!-- Griglia Risultati -->
-            <section class="results">
-                <div class="view-toggle">
-                    <button id="gridView" class="view-btn active">📱 Griglia</button>
-                    <button id="listView" class="view-btn">📋 Lista</button>
+                
+                <div class="filter-group">
+                    <label for="capacity-range">Capacità (kg): <span id="capacity-value">0 - 20</span></label>
+                    <input type="range" id="capacity-range" min="0" max="20" step="1" value="20">
                 </div>
 
-                <div id="resultsGrid" class="results-grid"></div>
-            </section>
+                <div class="filter-group">
+                    <label>Classe Energetica:</label>
+                    <div id="energy-class-filters" class="checkbox-group"></div>
+                </div>
+
+                <div class="filter-group">
+                    <label>Altre Caratteristiche:</label>
+                    <div class="checkbox-group single-line">
+                        <label><input type="checkbox" name="feature" value="wifi"> WiFi</label>
+                        <label><input type="checkbox" name="feature" value="funzione_vapore"> Vapore</label>
+                        <label><input type="checkbox" name="feature" value="auto_dosaggio"> Auto-Dosaggio</label>
+                        <label><input type="checkbox" name="feature" value="ai"> AI</label>
+                    </div>
+                </div>
+                
+                <button type="reset" class="reset-btn">Azzera Filtri</button>
+            </form>
+        </aside>
+
+        <main class="results-area">
+            <div id="results-count"></div>
+            <div id="product-list" class="product-grid">
+                </div>
+        </main>
+    </div>
+
+    <div id="comparison-drawer" class="comparison-drawer">
+        <div class="comparison-header">
+            <h3>Confronta Modelli (<span id="comparison-count">0</span>/4)</h3>
+            <button id="compare-now-btn" disabled>Confronta</button>
+            <button id="clear-comparison-btn">Pulisci</button>
         </div>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>© 2024-2025 Database Lavatrici | 42 Modelli Analizzati | 9 Marche Premium</p>
-            <p>Dati aggiornati a Gennaio 2025</p>
+        <div id="comparison-items">
+            </div>
+    </div>
+    
+    <div id="comparison-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Confronto Dettagliato</h2>
+            <div id="comparison-table-container"></div>
         </div>
-    </footer>
+    </div>
 
-    <script src="database-completo-42-programmi.js"></script>
-    <script src="app.js"></script>
+
+    <script src="database.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
