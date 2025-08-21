@@ -250,5 +250,26 @@ const lavatriciDatabase = [
         tecnologie_principali: ["SteamCure 3-in-1", "StainExpert", "Pet Hair Removal"],
         dimensioni: "600x845x580",
         innovazioni: "SteamCure 3-in-1: antibatterico + antimacchia + antipiega"
+    }, 
+    {
+        id: 13, // <-- Cambia l'ID con un numero nuovo
+        marca: "MARCA",
+        modello: "MODELLO",
+        serie: "SERIE",
+        capacita_kg: 9, // numero
+        classe_energetica: "A",
+        prezzo_min: 800, // numero
+        prezzo_max: 1000, // numero
+        tipo_carica: "Frontale",
+        funzione_vapore: "Sì", // o "No"
+        wifi: "Sì", // o "No"
+        auto_dosaggio: "Sì", // o "No"
+        ai: true, // o false
+        centrifuga_max: 1400, // numero
+        consumo_energia_kwh: 50, // numero
+        rumorosita_db: 71, // numero
+        tecnologie_principali: ["Tecnologia 1", "Tecnologia 2"],
+        dimensioni: "600x850x560",
+        innovazioni: "Descrivi l'innovazione qui"
     }
 ];
